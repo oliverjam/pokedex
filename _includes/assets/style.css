@@ -1,0 +1,266 @@
+:root {
+  --space0: 0rem;
+  --space1: 0.25rem;
+  --space2: 0.5rem;
+  --space3: 1rem;
+  --space4: 2rem;
+  --space5: 4rem;
+  --space6: 8rem;
+  --space7: 16rem;
+  --space8: 32rem;
+
+  --font0: 0.75rem;
+  --font1: 0.875rem;
+  --font2: 1rem;
+  --font3: 1.25rem;
+  --font4: 1.5rem;
+  --font5: 2rem;
+  --font6: 3rem;
+  --font7: 4rem;
+  --font8: 6rem;
+
+  --grey-light: hsl(220, 10%, 90%);
+
+  --bug: #a8b820;
+  --bug-light: #a8b820;
+  --bug-dark: #6d7815;
+
+  --dark: #705848;
+  --dark-light: #a29288;
+  --dark-dark: #49392f;
+
+  --dragon: #7038f8;
+  --dragon-light: #a27dfa;
+  --dragon-dark: #4924a1;
+
+  --electric: #f8d030;
+  --electric-light: #fae078;
+  --electric-dark: #a1871f;
+
+  --fairy: #ee99ac;
+  --fairy-light: #f4bdc9;
+  --fairy-dark: #9b6470;
+
+  --fighting: #c03028;
+  --fighting-light: #d67873;
+  --fighting-dark: #7d1f1a;
+
+  --fire: #f08030;
+  --fire-light: #f5ac78;
+  --fire-dark: #9c531f;
+
+  --flying: #a890f0;
+  --flying-light: #c6b7f5;
+  --flying-dark: #6d5e9c;
+
+  --ghost: #705898;
+  --ghost-light: #a292bc;
+  --ghost-dark: #493963;
+
+  --grass: #78c850;
+  --grass-light: #a7db8d;
+  --grass-dark: #4e8234;
+
+  --ice: #98d8d8;
+  --ice-light: #bce6e6;
+  --ice-dark: #638d8d;
+
+  --normal: #a8a878;
+  --normal-light: #c6c6a7;
+  --normal-dark: #6d6d4e;
+
+  --psychic: #f85888;
+  --psychic-light: #fa92b2;
+  --psychic-dark: #a13959;
+
+  --rock: #b8a038;
+  --rock-light: #d1c17d;
+  --rock-dark: #786824;
+
+  --steel: #b8b8d0;
+  --steel-light: #d1d1e0;
+  --steel-dark: #787887;
+
+  --water: #6890f0;
+  --water-light: #9db7f5;
+  --water-dark: #445e9c;
+
+  --poison: #a040a0;
+  --poison-dark: #682a68;
+  --poison-light: #c183c1;
+
+  --ground: #e0c068;
+  --ground-dark: #927d44;
+  --ground-light: #ebd69d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+    sans-serif;
+  color: hsl(220, 10%, 20%);
+  background-color: hsl(220, 10%, 96%);
+}
+
+input {
+  display: block;
+  color: inherit;
+  font: inherit;
+  border: 0;
+}
+
+label {
+  font-weight: 700;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.vh {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+}
+
+.box {
+  --space: var(--space3);
+  --bg: inherit;
+  --fg: inherit;
+  color: var(--fg);
+  background-color: var(--bg);
+  padding: var(--space);
+}
+
+.box * {
+  color: inherit;
+}
+
+[class^="row"] {
+  display: flex;
+  align-items: center;
+}
+
+.row > * + * {
+  margin-left: var(--space3);
+}
+
+.row2 > * + * {
+  margin-left: var(--space2);
+}
+
+.row4 > * + * {
+  margin-left: var(--space4);
+}
+
+[class^="stack"] > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.stack > * + * {
+  margin-top: var(--space3);
+}
+
+.stack2 > * + * {
+  margin-top: var(--space2);
+}
+
+.stack4 > * + * {
+  margin-top: var(--space4);
+}
+
+.stack5 > * + * {
+  margin-top: var(--space5);
+}
+
+.cluster {
+  --gap: var(--space3);
+  overflow: hidden;
+}
+
+.cluster > * {
+  margin: calc(var(--gap) / 2 * -1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cluster > * > * {
+  margin: calc(var(--gap) / 2);
+}
+
+.grid {
+  --min-width: 16rem;
+  --gap: var(--space4);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
+  gap: var(--gap);
+}
+
+h1 {
+  font-size: var(--font6);
+  text-transform: capitalize;
+}
+
+[class^="pill"] {
+  --size: var(--font1);
+  border-radius: 1rem;
+  padding: 0.5em 1em;
+  font-size: var(--size);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: var(--bg, var(--grey-light));
+}
+
+.poke-link {
+  position: relative;
+  border-radius: 0.125rem;
+}
+
+.poke-link:hover {
+  --bg: var(--grey-light);
+}
+
+.poke-link:focus-within {
+  outline: 0.25rem solid var(--grey-light);
+  outline-offset: 2px;
+}
+
+.poke-link a {
+  font-size: var(--font3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.poke-link a:hover,
+.poke-link a:focus {
+  outline: 0;
+  text-decoration: underline;
+}
+
+.poke-link a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

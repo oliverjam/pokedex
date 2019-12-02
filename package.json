@@ -1,0 +1,19 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve --quiet",
+    "build": "ELEVENTY_ENV=production eleventy",
+    "format": "prettier **/*.js --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.9.0",
+    "html-minifier": "^4.0.0",
+    "prettier": "^1.19.1"
+  }
+}
