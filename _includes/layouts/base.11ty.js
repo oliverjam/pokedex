@@ -2,6 +2,7 @@ const html = require("../../html");
 const css = String.raw;
 
 exports.render = data => {
+  console.log(data.page.url);
   return html`
     <!DOCTYPE html>
     <html lang="en">
@@ -9,7 +10,11 @@ exports.render = data => {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="/assets/style.css" />
+        <link rel="stylesheet" href="/assets/global.css" />
+        ${data.page.url.includes("/pokemon") &&
+          html`
+            <link rel="stylesheet" href="/assets/pokemon.css" />
+          `}
       </head>
       <body>
         <header class="site-header">

@@ -1,0 +1,69 @@
+.scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: var(--font2);
+  background-color: var(--grey1);
+}
+
+thead {
+  border-bottom: 1px solid var(--grey4);
+  background-color: var(--grey3);
+}
+
+tbody {
+  border: 1px solid var(--grey3);
+}
+
+tr:nth-child(even) {
+  background-color: var(--grey2);
+}
+
+th,
+td {
+  padding: var(--space2);
+  text-transform: capitalize;
+}
+
+td.right {
+  text-align: right;
+}
+
+td.move {
+  min-width: 12ch;
+  font-size: var(--font3);
+}
+
+progress {
+  --radius: 1rem;
+  --value: var(--primary);
+  --bg: var(--grey3);
+  --shadow: inset 1px 1px hsla(220, 10%, 40%, 0.5);
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  border: 0;
+  background-color: var(--bg);
+}
+
+progress::-moz-progress-bar {
+  box-shadow: var(--shadow);
+  border-radius: var(--radius) 0 0 var(--radius);
+  background-color: var(--value);
+}
+
+progress::-webkit-progress-bar {
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  background-color: var(--bg);
+}
+
+progress::-webkit-progress-value {
+  box-shadow: var(--shadow);
+  border-radius: var(--radius) 0 0 var(--radius);
+  background-color: var(--value);
+}
