@@ -28,6 +28,7 @@
   --grey3: hsl(220, 10%, 80%);
   --grey4: hsl(220, 10%, 70%);
   --grey5: hsl(220, 10%, 60%);
+  --grey6: hsl(220, 10%, 50%);
 
   --bug: #a8b820;
   --bug-light: #a8b820;
@@ -119,6 +120,19 @@ input {
   color: inherit;
   font: inherit;
   border: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+input::placeholder {
+  font-style: italic;
+  color: var(--grey6);
 }
 
 label {
@@ -290,6 +304,34 @@ h1 {
   font-size: var(--font6);
 }
 
+.search {
+  border: 2px solid var(--grey3);
+  border-radius: 0.125rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  background-color: #fff;
+}
+
+.search:focus-within {
+  outline: 0;
+  border-color: var(--secondary);
+}
+
+.search > input {
+  padding: 0.5rem;
+}
+
+.search > button {
+  border: 0;
+  background: none;
+  padding: var(--space2);
+}
+
+.search > input:focus,
+.search > button:focus {
+  outline: 0;
+}
+
 [class^="pill"] {
   --size: var(--font1);
   border-radius: 1rem;
@@ -307,8 +349,8 @@ h1 {
 }
 
 .poke-link:focus-within {
-  outline: 0.5rem solid var(--grey2);
-  outline-offset: 2px;
+  outline: 0.5rem solid var(--secondary);
+  outline-offset: var(--space2);
 }
 
 .poke-link a {
