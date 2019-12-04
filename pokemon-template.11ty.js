@@ -22,7 +22,7 @@ exports.render = data => {
     stats,
     moves,
   } = data.pokemon;
-  if (!moves["level-up"]["ultra-sun-ultra-moon"]) console.warn(name);
+  if (!moves["level-up"]) console.warn(name);
   return html`
     <div class="stack2">
       <section class="stack">
