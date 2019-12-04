@@ -6,7 +6,14 @@
 table {
   border-collapse: collapse;
   font-size: var(--font2);
+}
+
+.table {
   background-color: var(--grey1);
+}
+
+.table tbody {
+  border: 1px solid var(--grey3);
 }
 
 thead {
@@ -14,11 +21,7 @@ thead {
   background-color: var(--grey3);
 }
 
-tbody {
-  border: 1px solid var(--grey3);
-}
-
-tr:nth-child(even) {
+.table tr:nth-child(even) {
   background-color: var(--grey2);
 }
 
@@ -26,6 +29,11 @@ th,
 td {
   padding: var(--space2);
   text-transform: capitalize;
+}
+
+table:not(.table) th:first-child,
+table:not(.table) td:first-child {
+  padding-left: 0;
 }
 
 td.right {

@@ -51,54 +51,64 @@ exports.render = data => {
       </section>
     </div>
 
-    <section class="stack">
-      <h2>Abilities</h2>
-      <ul class="stack">
-        ${abilities.map(Ability)}
-      </ul>
-    </section>
+    <div class="grid" style="--min-width: 30rem">
 
-    <section class="stack">
-      <h2>Stats</h2>
-      ${Stats(stats)}
-    </section>
+        <section class="stack">
+          <h2>Abilities</h2>
+          <ul class="stack">
+            ${abilities.map(Ability)}
+          </ul>
+        </section>
 
-    <section class="stack4">
-      <h2>Moves</h2>
-
-      <div class="stack">
-        <h3>By level-up</h3>
-        ${Moves({
-          moves,
-          type: "level-up",
-          game: "ultra-sun-ultra-moon",
-          types: types.map(t => t.name),
-        })}
+        <section class="stack">
+          <h2>Stats</h2>
+          ${Stats(stats)}
+        </section>
+        
       </div>
 
-      <details class="stack">
-        <summary>
-          <h3 style="display: inline;">By machine</h3>
-        </summary>
-        ${Moves({
-          moves,
-          type: "machine",
-          game: "ultra-sun-ultra-moon",
-          types: types.map(t => t.name),
-        })}
-      </details>
-    </section>
-    <style>
-      :root {
-        --primary: var(--${types[0].name});
-        --primary-light: var(--${types[0].name}-light);
-        --primary-dark: var(--${types[0].name}-dark);
-        ${types[1] && `--secondary: var(--${types[1].name})`};
-      }
-      body {
-        font-size: 1.25rem;
-      }
-    </style>
+      <section class="stack4">
+        <h2>Moves</h2>
+
+        <div class="grid" style="--min-width: 30rem">
+        <details class="stack" open>
+          <summary>
+          <h3 style="display: inline;">By level-up</h3>
+          </summary>
+          ${Moves({
+            moves,
+            type: "level-up",
+            game: "ultra-sun-ultra-moon",
+            types: types.map(t => t.name),
+          })}
+        </details>
+
+        <details class="stack">
+          <summary>
+            <h3 style="display: inline;">By machine</h3>
+          </summary>
+          ${Moves({
+            moves,
+            type: "machine",
+            game: "ultra-sun-ultra-moon",
+            types: types.map(t => t.name),
+          })}
+        </details>
+
+        </div>
+      </section>
+      <style>
+        :root {
+          --primary: var(--${types[0].name});
+          --primary-light: var(--${types[0].name}-light);
+          --primary-dark: var(--${types[0].name}-dark);
+          ${types[1] && `--secondary: var(--${types[1].name})`};
+        }
+        body {
+          font-size: 1.25rem;
+        }
+      </style>
+    </div>
   `;
 };
 
@@ -139,7 +149,7 @@ function Moves({ moves, type, game, types }) {
   if (!movesByGame) return null;
   return html`
     <div class="scroll">
-      <table>
+      <table class="table">
         <thead class="vh">
           <tr>
             ${type === "level-up" &&
