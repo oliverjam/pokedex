@@ -2,6 +2,7 @@ const html = require("../../html");
 const css = String.raw;
 
 exports.render = data => {
+  const isHomepage = !data.page.url.includes("/pokemon");
   return html`
     <!DOCTYPE html>
     <html lang="en">
@@ -10,13 +11,13 @@ exports.render = data => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="/assets/global.css" />
-        ${data.page.url.includes("/pokemon") &&
+        ${!isHomepage &&
           html`
             <link rel="stylesheet" href="/assets/pokemon.css" />
           `}
       </head>
       <body>
-        <header class="row-between site-header">
+        <header class="row between site-header">
           <a href="/" aria-label="Home">
             <svg
               viewBox="0 0 32 32"
@@ -44,54 +45,55 @@ exports.render = data => {
               <circle cx="16" cy="16" r="14" fill="none" stroke="black" />
             </svg>
           </a>
-          <section class="stack" aria-label="search pokemon">
-            <form action="/">
-              <label for="search" class="vh">Search</label>
-              <div class="search">
-                <input
-                  id="search"
-                  name="search"
-                  type="search"
-                  autocomplete="off"
-                  autofocus
-                  placeholder="e.g. Charizard"
-                />
-                <button id="clear" type="button" aria-label="clear search">
-                  <svg
-                    viewBox="0 0 32 32"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentcolor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    style="transform: scaleX(-1)"
-                  >
-                    <path
-                      d="M29 16 C29 22 24 29 16 29 8 29 3 22 3 16 3 10 8 3 16 3 21 3 25 6 27 9 M20 10 L27 9 28 2"
-                    ></path>
-                  </svg>
-                </button>
-                <button type="submit" aria-hidden="true" tabindex="-1">
-                  <svg
-                    viewBox="0 0 32 32"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentcolor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <circle cx="14" cy="14" r="12"></circle>
-                    <path d="M23 23 L30 30"></path>
-                  </svg>
-                </button>
-              </div>
-            </form>
-          </section>
+          <form action="/">
+            <label for="search" class="vh">Search</label>
+            <div class="search">
+              <input
+                id="search"
+                name="search"
+                type="search"
+                autocomplete="off"
+                autofocus
+                placeholder="e.g. Charizard"
+              />
+              ${isHomepage &&
+                html`
+                  <button id="clear" type="button" aria-label="clear search">
+                    <svg
+                      viewBox="0 0 32 32"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      stroke="currentcolor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      style="transform: scaleX(-1)"
+                    >
+                      <path
+                        d="M29 16 C29 22 24 29 16 29 8 29 3 22 3 16 3 10 8 3 16 3 21 3 25 6 27 9 M20 10 L27 9 28 2"
+                      ></path>
+                    </svg>
+                  </button>
+                `}
+              <button type="submit" aria-hidden="true" tabindex="-1">
+                <svg
+                  viewBox="0 0 32 32"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <circle cx="14" cy="14" r="12"></circle>
+                  <path d="M23 23 L30 30"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
         </header>
         <main class="stack4">
           ${data.content}
