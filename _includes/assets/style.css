@@ -139,9 +139,9 @@ h3 {
 }
 
 main {
-  max-width: 74rem;
   margin: 0 auto;
   padding: 0 1.5rem;
+  padding: 0 max(1.5rem, 5vw);
 }
 
 .site-header {
@@ -246,11 +246,18 @@ main {
 }
 
 .grid {
-  --min-width: 16rem;
-  --gap: var(--space4);
+  --gap: var(--space3);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--min-width), 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: var(--gap);
+}
+
+@media (min-width: 40em) {
+  .grid {
+    --min-width: 14rem;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
+    --gap: var(--space4);
+  }
 }
 
 .frame {
@@ -297,10 +304,6 @@ h1 {
 .poke-link {
   position: relative;
   border-radius: 0.125rem;
-}
-
-.poke-link:hover {
-  --bg: var(--grey1);
 }
 
 .poke-link:focus-within {
