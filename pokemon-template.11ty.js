@@ -26,7 +26,7 @@ exports.render = data => {
   return html`
     <div class="stack2">
       <section class="stack">
-        <div class="cluster">
+        <div class="cluster" style="--align: center">
           <header>
             <h1>${name}</h1>
             <span class="pill">#${id}</span>
@@ -51,7 +51,8 @@ exports.render = data => {
       </section>
     </div>
 
-    <div class="grid" style="--min-width: 30rem">
+    <div class="cluster">
+    <div>
 
         <section class="stack">
           <h2>Abilities</h2>
@@ -66,11 +67,13 @@ exports.render = data => {
         </section>
         
       </div>
+      </div>
 
       <section class="stack4">
         <h2>Moves</h2>
 
-        <div class="grid" style="--min-width: 30rem">
+        <div class="cluster">
+        <div>
         <details class="stack" open>
           <summary>
           <h3 style="display: inline;">By level-up</h3>
@@ -96,6 +99,7 @@ exports.render = data => {
         </details>
 
         </div>
+        </div>
       </section>
       <style>
         :root {
@@ -103,9 +107,6 @@ exports.render = data => {
           --primary-light: var(--${types[0].name}-light);
           --primary-dark: var(--${types[0].name}-dark);
           ${types[1] && `--secondary: var(--${types[1].name})`};
-        }
-        body {
-          font-size: 1.25rem;
         }
       </style>
     </div>
