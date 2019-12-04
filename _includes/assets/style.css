@@ -19,18 +19,22 @@
   --font7: 4rem;
   --font8: 6rem;
 
-  --grey-light: hsl(220, 10%, 90%);
+  --primary: hsl(345, 85%, 55%);
+  --secondary: hsl(220, 85%, 65%);
+
+  --grey-lightest: hsl(220, 10%, 92%);
+  --grey-light: hsl(220, 10%, 88%);
 
   --bug: #a8b820;
   --bug-light: #a8b820;
   --bug-dark: #6d7815;
 
   --dark: #705848;
-  --dark-light: #a29288;
+  --dark-light: hsl(23, 12%, 60%);
   --dark-dark: #49392f;
 
   --dragon: #7038f8;
-  --dragon-light: #a27dfa;
+  --dragon-light: hsl(258, 95%, 75%);
   --dragon-dark: #4924a1;
 
   --electric: #f8d030;
@@ -42,7 +46,7 @@
   --fairy-dark: #9b6470;
 
   --fighting: #c03028;
-  --fighting-light: #d67873;
+  --fighting-light: hsl(3, 55%, 67%);
   --fighting-dark: #7d1f1a;
 
   --fire: #f08030;
@@ -123,10 +127,41 @@ ol {
   padding: 0;
 }
 
+h1,
+h2,
+h3 {
+  font-family: monaco, consolas, monospace;
+  text-transform: capitalize;
+}
+
 main {
-  max-width: 40rem;
+  max-width: 74rem;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.site-header {
+  padding: 1rem;
+}
+
+#pokeball-blue {
+  animation: rotate 2.5s 2s ease-in-out;
+  transform-origin: 50% 50%;
+}
+
+@keyframes rotate {
+  0%,
+  10% {
+    transform: rotate(0deg);
+  }
+  40%,
+  60% {
+    transform: rotate(180deg);
+  }
+  90%,
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .vh {
@@ -214,9 +249,34 @@ main {
   gap: var(--gap);
 }
 
+.frame {
+  --n: 1; /* width */
+  --d: 1; /* height */
+  padding-bottom: calc(var(--n) / var(--d) * 100%);
+  position: relative;
+}
+
+.frame > * {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame > img,
+.frame > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 h1 {
   font-size: var(--font6);
-  text-transform: capitalize;
 }
 
 [class^="pill"] {
@@ -236,16 +296,16 @@ h1 {
 }
 
 .poke-link:hover {
-  --bg: var(--grey-light);
+  --bg: var(--grey-lightest);
 }
 
 .poke-link:focus-within {
-  outline: 0.25rem solid var(--grey-light);
+  outline: 0.5rem solid var(--grey-light);
   outline-offset: 2px;
 }
 
 .poke-link a {
-  font-size: var(--font3);
+  font-size: var(--font4);
   color: inherit;
   text-decoration: none;
 }

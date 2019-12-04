@@ -72,6 +72,15 @@ exports.render = data => {
         ${Moves({ moves, type: "machine", game: "ultra-sun-ultra-moon" })}
       </details>
     </section>
+    <style>
+      :root {
+        --primary: var(--${types[0].name});
+        ${types[1] && `--secondary: var(--${types[1].name})`};
+      }
+      body {
+        font-size: 1.25rem;
+      }
+    </style>
   `;
 };
 
@@ -85,14 +94,17 @@ function Ability({ name, hidden, short_effect, effect }) {
   return html`
     <li class="stack2">
       <h3>
-        ${name}${hidden && " (hidden)"}
+        ${name.replace("-", " ")}${hidden && " (hidden)"}
       </h3>
+      ${short_effect === effect ? html`<p>
+          ${effect}
+        </p>` : html`
       <details>
         <summary>${short_effect}</summary>
         <p>
           ${effect}
         </p>
-      </details>
+      </details>`}
     </li>
   `;
 }

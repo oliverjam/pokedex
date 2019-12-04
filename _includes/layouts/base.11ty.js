@@ -12,6 +12,33 @@ exports.render = data => {
         <link rel="stylesheet" href="/assets/style.css" />
       </head>
       <body>
+        <header class="site-header">
+          <a href="/" aria-label="Home">
+            <svg
+              viewBox="0 0 32 32"
+              width="48"
+              height="48"
+              stroke="none"
+              aria-hidden="true"
+            >
+              <path
+                id="red"
+                d="M2,16 a 6 6 0 0 1 28 0 Z"
+                fill="var(--primary)"
+              />
+              <path
+                id="pokeball-blue"
+                d="M2,16 a 6 6 0 0 0 28 0 Z"
+                fill="var(--secondary)"
+              />
+              <path id="white" d="M2,16 a 6 6 0 0 0 28 0 Z" fill="white" />
+              <line x1="2" y1="16" x2="30" y2="16" stroke="black" />
+              <circle cx="16" cy="16" r="5" fill="grey" stroke="black" />
+              <circle cx="16" cy="16" r="3" fill="white" stroke="black" />
+              <circle cx="16" cy="16" r="14" fill="none" stroke="black" />
+            </svg>
+          </a>
+        </header>
         <main class="stack4">
           ${data.content}
         </main>
