@@ -21,19 +21,21 @@ exports.render = data => {
               stroke="none"
               aria-hidden="true"
             >
+              <path d="M2,16 a 6 6 0 0 1 28 0 Z" fill="var(--primary)" />
               <path
-                id="red"
-                d="M2,16 a 6 6 0 0 1 28 0 Z"
-                fill="var(--primary)"
-              />
-              <path
-                id="pokeball-blue"
+                id="pokeball-secondary"
                 d="M2,16 a 6 6 0 0 0 28 0 Z"
                 fill="var(--secondary)"
               />
-              <path id="white" d="M2,16 a 6 6 0 0 0 28 0 Z" fill="white" />
+              <path d="M2,16 a 6 6 0 0 0 28 0 Z" fill="white" />
               <line x1="2" y1="16" x2="30" y2="16" stroke="black" />
-              <circle cx="16" cy="16" r="5" fill="grey" stroke="black" />
+              <circle
+                cx="16"
+                cy="16"
+                r="5"
+                fill="var(--grey5)"
+                stroke="black"
+              />
               <circle cx="16" cy="16" r="3" fill="white" stroke="black" />
               <circle cx="16" cy="16" r="14" fill="none" stroke="black" />
             </svg>

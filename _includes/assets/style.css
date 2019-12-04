@@ -22,8 +22,12 @@
   --primary: hsl(345, 85%, 55%);
   --secondary: hsl(220, 85%, 65%);
 
-  --grey-lightest: hsl(220, 10%, 92%);
-  --grey-light: hsl(220, 10%, 88%);
+  --grey0: hsl(220, 10%, 96%);
+  --grey1: hsl(220, 10%, 92%);
+  --grey2: hsl(220, 10%, 88%);
+  --grey3: hsl(220, 10%, 80%);
+  --grey4: hsl(220, 10%, 70%);
+  --grey5: hsl(220, 10%, 60%);
 
   --bug: #a8b820;
   --bug-light: #a8b820;
@@ -107,7 +111,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Helvetica, Arial,
     sans-serif;
   color: hsl(220, 10%, 20%);
-  background-color: hsl(220, 10%, 96%);
+  background-color: var(--grey0);
 }
 
 input {
@@ -144,8 +148,8 @@ main {
   padding: 1rem;
 }
 
-#pokeball-blue {
-  animation: rotate 2.5s 2s ease-in-out;
+#pokeball-secondary {
+  animation: rotate 2.5s 2s ease-in-out forwards;
   transform-origin: 50% 50%;
 }
 
@@ -160,7 +164,7 @@ main {
   }
   90%,
   100% {
-    transform: rotate(360deg);
+    transform: rotate(630deg);
   }
 }
 
@@ -287,7 +291,7 @@ h1 {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: var(--bg, var(--grey-light));
+  background-color: var(--bg, var(--grey2));
 }
 
 .poke-link {
@@ -296,11 +300,11 @@ h1 {
 }
 
 .poke-link:hover {
-  --bg: var(--grey-lightest);
+  --bg: var(--grey1);
 }
 
 .poke-link:focus-within {
-  outline: 0.5rem solid var(--grey-light);
+  outline: 0.5rem solid var(--grey2);
   outline-offset: 2px;
 }
 
@@ -323,4 +327,43 @@ h1 {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: var(--font2);
+  background-color: var(--grey1);
+}
+
+thead {
+  border-bottom: 1px solid var(--grey4);
+  background-color: var(--grey3);
+}
+
+tbody {
+  border: 1px solid var(--grey3);
+}
+
+tr:nth-child(even) {
+  background-color: var(--grey2);
+}
+
+th,
+td {
+  padding: var(--space2);
+  text-transform: capitalize;
+}
+
+td.right {
+  text-align: right;
+}
+
+td.move {
+  min-width: 12ch;
+  font-size: var(--font3);
 }

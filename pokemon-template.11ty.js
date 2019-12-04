@@ -57,24 +57,36 @@ exports.render = data => {
       ${Stats(stats)}
     </section>
 
-    <section class="stack">
+    <section class="stack4">
       <h2>Moves</h2>
 
-      <div>
+      <div class="stack">
         <h3>By level-up</h3>
-        ${Moves({ moves, type: "level-up", game: "ultra-sun-ultra-moon" })}
+        ${Moves({
+          moves,
+          type: "level-up",
+          game: "ultra-sun-ultra-moon",
+          types: types.map(t => t.name),
+        })}
       </div>
 
-      <details>
+      <details class="stack">
         <summary>
           <h3 style="display: inline;">By machine</h3>
         </summary>
-        ${Moves({ moves, type: "machine", game: "ultra-sun-ultra-moon" })}
+        ${Moves({
+          moves,
+          type: "machine",
+          game: "ultra-sun-ultra-moon",
+          types: types.map(t => t.name),
+        })}
       </details>
     </section>
     <style>
       :root {
         --primary: var(--${types[0].name});
+        --primary-light: var(--${types[0].name}-light);
+        --primary-dark: var(--${types[0].name}-dark);
         ${types[1] && `--secondary: var(--${types[1].name})`};
       }
       body {
@@ -94,45 +106,78 @@ function Ability({ name, hidden, short_effect, effect }) {
   return html`
     <li class="stack2">
       <h3>
-        ${name.replace("-", " ")}${hidden && " (hidden)"}
+        ${name}${hidden && " (hidden)"}
       </h3>
-      ${short_effect === effect ? html`<p>
-          ${effect}
-        </p>` : html`
-      <details>
-        <summary>${short_effect}</summary>
-        <p>
-          ${effect}
-        </p>
-      </details>`}
+      ${short_effect === effect
+        ? html`
+            <p>
+              ${effect}
+            </p>
+          `
+        : html`
+            <details>
+              <summary>${short_effect}</summary>
+              <p>
+                ${effect}
+              </p>
+            </details>
+          `}
     </li>
   `;
 }
 
-function Moves({ moves, type, game }) {
+function Moves({ moves, type, game, types }) {
   const movesByType = moves[type];
   if (!movesByType) return null;
   const movesByGame = movesByType[game];
   if (!movesByGame) return null;
   return html`
-    <table>
-      <thead>
-        <tr>
-          <td>lvl</td>
-          <td>Move</td>
-        </tr>
-      </thead>
-      <tbody>
-        ${movesByGame.map(
-          m => html`
-            <tr>
-              <td class="right">${m.level}</td>
-              <td>${m.name}</td>
-            </tr>
-          `
-        )}
-      </tbody>
-    </table>
+    <div class="scroll">
+      <table>
+        <thead class="vh">
+          <tr>
+            ${type === "level-up" &&
+              html`
+                <td>lvl</td>
+              `}
+            <td>Move</td>
+            <td>Type</td>
+            <td aria-label="category">Cat</td>
+            <td>Power</td>
+            <td aria-label="accuracy">Acc</td>
+            <td>PP</td>
+          </tr>
+        </thead>
+        <tbody>
+          ${movesByGame.map(m => {
+            const stab = types.includes(m.type) && m.power;
+            return html`
+              <tr>
+                ${type === "level-up" &&
+                  html`
+                    <td class="right">${m.level}</td>
+                  `}
+                <td
+                  class="move"
+                  style="font-weight: ${stab ? "bold" : "normal"}"
+                >
+                  ${m.name}
+                </td>
+                <td
+                  style="background-color: var(--${m.type}-light); font-size: var(--font2); text-align: center;"
+                >
+                  ${m.type}
+                </td>
+                <td>${m.damage_class}</td>
+                <td class="right">${m.power}</td>
+                <td class="right">${m.accuracy}${m.accuracy && "%"}</td>
+                <td class="right">${m.pp}pp</td>
+              </tr>
+            `;
+          })}
+        </tbody>
+      </table>
+    </div>
   `;
 }
 
