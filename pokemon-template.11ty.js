@@ -200,13 +200,12 @@ function Stats(stats) {
       <tbody>
         ${stats.map(
           s => html`
-    <tr>
-				<th scope="row">${formatName(s.name)}</th>
-				<td>${s.base}</td>
-        <td><progress max="255" value="${s.base}">
-        </td>
-			</tr>
-    `
+            <tr>
+              <th scope="row">${formatName(s.name)}</th>
+              <td>${s.base}</td>
+              <td><progress max="255" value="${s.base}"></progress></td>
+            </tr>
+          `
         )}
       </tbody>
     </table>
