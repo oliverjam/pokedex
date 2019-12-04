@@ -24,7 +24,7 @@ exports.render = data => {
   } = data.pokemon;
   if (!moves["level-up"]["ultra-sun-ultra-moon"]) console.warn(name);
   return html`
-    <div>
+    <div class="stack2">
       <section class="stack">
         <div class="cluster">
           <header>
@@ -32,7 +32,13 @@ exports.render = data => {
             <span class="pill">#${id}</span>
           </header>
         </div>
-        <img src="${sprite}" alt="" />
+        <img
+          src="${sprite}"
+          alt=""
+          width="256"
+          height="256"
+          style="background-color: var(--grey1)"
+        />
       </section>
 
       <section>
