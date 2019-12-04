@@ -9,6 +9,8 @@
   --space7: 16rem;
   --space8: 32rem;
 
+  --gutter: max(1.5rem, 5vw);
+
   --font0: 0.75rem;
   --font1: 0.875rem;
   --font2: 1rem;
@@ -115,6 +117,15 @@ body {
   background-color: var(--grey0);
 }
 
+a {
+  color: inherit;
+}
+
+a:focus {
+  outline: 0.25rem solid var(--secondary);
+  outline-offset: var(--space1);
+}
+
 input {
   display: block;
   color: inherit;
@@ -208,6 +219,10 @@ main {
 [class^="row"] {
   display: flex;
   align-items: center;
+}
+
+.row-between {
+  justify-content: space-between;
 }
 
 .row > * + * {
@@ -372,4 +387,21 @@ h1 {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.site-footer {
+  padding-top: var(--space5);
+  padding-bottom: 1.5rem;
+  padding-bottom: max(1.5rem, 5vw);
+  padding-left: 1.5rem;
+  padding-left: max(1.5rem, 5vw);
+  padding-right: 1.5rem;
+  padding-right: max(1.5rem, 5vw);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--font1);
+}
+
+.site-footer a {
+  text-transform: none;
 }
