@@ -5,7 +5,7 @@
 
 table {
   border-collapse: collapse;
-  font-size: var(--font2);
+  font-size: var(--font1);
 }
 
 .table {
@@ -42,7 +42,7 @@ td.right {
 
 td.move {
   min-width: 12ch;
-  font-size: var(--font3);
+  font-size: var(--font2);
 }
 
 progress {
