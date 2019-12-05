@@ -21,7 +21,13 @@ function Pokemon(p) {
     <li class="stack2 poke-link">
       <div class="box" style="--space: var(--space4); --bg: var(--grey1);">
         <div class="frame">
-          <img src="${p.sprite}" alt="" width="64" height="64" loading="lazy" />
+          <img
+            src="${p.sprite || "/assets/missing.svg"}"
+            alt=""
+            width="64"
+            height="64"
+            loading="lazy"
+          />
         </div>
       </div>
       <div class="stack2">

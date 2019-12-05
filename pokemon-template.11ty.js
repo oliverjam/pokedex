@@ -33,7 +33,7 @@ exports.render = data => {
           </header>
         </div>
         <img
-          src="${sprite}"
+          src="${sprite || "/assets/missing.svg"}"
           alt=""
           width="256"
           height="256"
