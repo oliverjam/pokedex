@@ -149,52 +149,45 @@ function Moves({ moves, type, game, types }) {
   const movesByGame = movesByType[game];
   if (!movesByGame) return null;
   return html`
-    <div class="scroll">
-      <table class="table">
-        <thead class="vh">
-          <tr>
-            ${type === "level-up" &&
-              html`
-                <td>lvl</td>
-              `}
-            <td>Move</td>
-            <td>Type</td>
-            <td aria-label="category">Cat</td>
-            <td>Power</td>
-            <td aria-label="accuracy">Acc</td>
-            <td>PP</td>
-          </tr>
-        </thead>
-        <tbody>
-          ${movesByGame.map(m => {
-            const stab = types.includes(m.type) && m.power;
-            return html`
-              <tr>
-                ${type === "level-up" &&
-                  html`
-                    <td class="right">${m.level}</td>
-                  `}
-                <td
-                  class="move"
-                  style="font-weight: ${stab ? "bold" : "normal"}"
-                >
-                  ${m.name}
-                </td>
-                <td
-                  style="background-color: var(--${m.type}-light); font-size: var(--font2); text-align: center;"
-                >
-                  ${m.type}
-                </td>
-                <td>${m.damage_class}</td>
-                <td class="right">${m.power}</td>
-                <td class="right">${m.accuracy}${m.accuracy && "%"}</td>
-                <td class="right">${m.pp}pp</td>
-              </tr>
-            `;
-          })}
-        </tbody>
-      </table>
-    </div>
+    <table class="table">
+      <thead class="vh">
+        <tr>
+          ${type === "level-up" &&
+            html`
+              <td>lvl</td>
+            `}
+          <td>Move</td>
+          <td>Type</td>
+          <td aria-label="category">Cat</td>
+          <td>Power</td>
+          <td aria-label="accuracy">Acc</td>
+        </tr>
+      </thead>
+      <tbody>
+        ${movesByGame.map(m => {
+          const stab = types.includes(m.type) && m.power;
+          return html`
+            <tr>
+              ${type === "level-up" &&
+                html`
+                  <td class="right">${m.level}</td>
+                `}
+              <td class="move" style="font-weight: ${stab ? "bold" : "normal"}">
+                ${m.name}
+              </td>
+              <td
+                style="background-color: var(--${m.type}-light); font-size: var(--font2); text-align: center;"
+              >
+                ${m.type}
+              </td>
+              <td>${m.damage_class.slice(0, 2)}</td>
+              <td class="right">${m.power}</td>
+              <td class="right">${m.accuracy}${m.accuracy && "%"}</td>
+            </tr>
+          `;
+        })}
+      </tbody>
+    </table>
   `;
 }
 
