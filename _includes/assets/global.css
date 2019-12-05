@@ -277,7 +277,7 @@ main {
 .grid {
   --gap: var(--space3);
   display: grid;
-  --min-width: 8rem;
+  --min-width: calc(8rem + 4vw);
   grid-template-columns: repeat(auto-fill, minmax(var(--min-width), 1fr));
   --gap: var(--space4);
   gap: var(--gap);
