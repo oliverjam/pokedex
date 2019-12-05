@@ -98,7 +98,7 @@ exports.render = data => {
         <main class="stack4">
           ${data.content}
         </main>
-        <footer class="row-between site-footer">
+        <footer class="row between site-footer">
           <p>Made by <a href="https://oliverjam.es">@oliverjam</a></p>
           <a href="https://github.com/oliverjam/pokedex">
             <svg viewBox="0 0 64 64" width="24" height="24">
