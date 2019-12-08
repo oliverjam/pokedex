@@ -132,7 +132,7 @@ function Ability({ name, hidden, short_effect, effect }) {
             </p>
           `
         : html`
-            <details>
+            <details class="stack2">
               <summary>${short_effect}</summary>
               <p>
                 ${effect}

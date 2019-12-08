@@ -22,13 +22,17 @@
   background-color: var(--grey1);
 }
 
+details {
+  line-height: 1.4;
+}
+
 table {
   border-collapse: collapse;
-  font-size: var(--font1);
 }
 
 .table {
   background-color: var(--grey1);
+  font-size: var(--font1);
 }
 
 .table tbody {
