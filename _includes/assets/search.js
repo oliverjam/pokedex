@@ -983,7 +983,7 @@ const html = `
       ${pokeNames.map(name => `<option>${name}</option>`).join("\n")}
     </datalist>
     <button type="submit" aria-hidden="true" tabindex="-1">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--grey6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
     </button>
   </div>
 </form>

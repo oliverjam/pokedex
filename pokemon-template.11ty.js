@@ -37,7 +37,7 @@ exports.render = data => {
           alt=""
           width="256"
           height="256"
-          style="background-color: var(--grey1)"
+          class="sprite"
         />
       </section>
 
@@ -172,12 +172,10 @@ function Moves({ moves, type, game, types }) {
                 html`
                   <td class="right">${m.level}</td>
                 `}
-              <td class="move" style="font-weight: ${stab ? "bold" : "normal"}">
+              <td class="move" style="--fw: ${stab ? "bold" : "normal"}">
                 ${m.name}
               </td>
-              <td
-                style="background-color: var(--${m.type}-light); font-size: var(--font2); text-align: center;"
-              >
+              <td class="type" style="--bg: var(--${m.type}-light)">
                 ${m.type}
               </td>
               <td>${m.damage_class.slice(0, 2)}</td>
