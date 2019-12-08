@@ -12,7 +12,6 @@ exports.render = data => {
         ${data.allPokemon.map(Pokemon)}
       </ol>
     </section>
-    <script async src="/assets/search.js"></script>
   `;
 };
 
