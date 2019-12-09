@@ -12,6 +12,7 @@ exports.render = data => {
         ${data.allPokemon.map(Pokemon)}
       </ol>
     </section>
+    <script src="/assets/cache-pokemon.js"></script>
   `;
 };
 
@@ -31,9 +32,7 @@ function Pokemon(p) {
       </div>
       <div class="stack2">
         <h2>
-          <a href="/pokemon/${p.name}" style="text-transform: capitalize;"
-            >${p.name}</a
-          >
+          <a href="/pokemon/${p.name}/">${p.name}</a>
         </h2>
         <ul class="row2">
           ${p.types.map(Type)}
