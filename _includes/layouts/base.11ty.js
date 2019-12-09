@@ -63,6 +63,19 @@ exports.render = data => {
           </a>
         </footer>
         <script async src="/assets/search.js"></script>
+        <script>
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+              .register("/service-worker.js")
+              .then(registration => {
+                console.log("Registered SW. Scope: ", registration.scope);
+              })
+              .catch(error => {
+                console.warn("SW failed to register");
+                console.warn(error);
+              });
+          }
+        </script>
       </body>
     </html>
   `;

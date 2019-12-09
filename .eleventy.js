@@ -2,6 +2,9 @@ const htmlmin = require("html-minifier");
 
 module.exports = config => {
   config.addPassthroughCopy({ "_includes/assets": "assets" });
+  config.addPassthroughCopy({
+    "_includes/assets/service-worker.js": "service-worker.js",
+  });
 
   config.addTransform("htmlmin", function(content, outputPath) {
     if (process.env.ELEVENTY_ENV === "production") {
