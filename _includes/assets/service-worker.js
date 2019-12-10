@@ -1,9 +1,9 @@
 const cacheName = "dex-0";
 
 const assets = [
-  // "/assets/global.css",
-  // "/assets/pokemon.css",
-  // "/assets/search.js",
+  "/assets/global.css",
+  "/assets/pokemon.css",
+  "/assets/search.js",
 ];
 
 self.addEventListener("install", event => {
@@ -30,13 +30,35 @@ self.addEventListener("activate", event => {
   );
 });
 
+const sameOrigin = event =>
+  new URL(event.request.url).origin === self.location.origin;
+
 self.addEventListener("fetch", event => {
+  const { request } = event;
+
+  // don't cache any external resources
+  // can only cache GETs
+  if (
+    !sameOrigin(event) ||
+    request.method !== "GET" ||
+    request.url.includes("browser-sync")
+  )
+    return fetch(request);
+
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) {
-        console.log(`responding with ${response.url}`);
-      }
-      return response || fetch(event.request);
-    })
+    caches.open(cacheName).then(cache =>
+      cache.match(request).then(cachedResponse => {
+        // always get a fresh copy from the network
+        // this updates the cache for next time
+        // https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/
+        const fetchPromise = fetch(request).then(response => {
+          cache.put(request, response.clone());
+          return response;
+        });
+        // if req is cached return it immediately
+        // otherwise use the network version
+        return cachedResponse || fetchPromise;
+      })
+    )
   );
 });
