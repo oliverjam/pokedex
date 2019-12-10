@@ -26,6 +26,11 @@ details {
   line-height: 1.4;
 }
 
+summary > h2,
+summary > h3 {
+  display: inline;
+}
+
 table {
   border-collapse: collapse;
 }

@@ -76,7 +76,7 @@ exports.render = data => {
         <div>
         <details class="stack" open>
           <summary>
-          <h3 style="display: inline;">By level-up</h3>
+          <h3>By level-up</h3>
           </summary>
           ${Moves({
             moves,
@@ -88,7 +88,7 @@ exports.render = data => {
 
         <details class="stack">
           <summary>
-            <h3 style="display: inline;">By machine</h3>
+            <h3>By machine</h3>
           </summary>
           ${Moves({
             moves,
@@ -101,14 +101,6 @@ exports.render = data => {
         </div>
         </div>
       </section>
-      <style>
-        :root {
-          --primary: var(--${types[0].name});
-          --primary-light: var(--${types[0].name}-light);
-          --primary-dark: var(--${types[0].name}-dark);
-          ${types[1] && `--secondary: var(--${types[1].name})`};
-        }
-      </style>
     </div>
   `;
 };

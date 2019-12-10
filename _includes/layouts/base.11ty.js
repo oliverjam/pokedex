@@ -1,19 +1,32 @@
 const html = require("../../html");
 const css = String.raw;
 
-exports.render = data => {
-  const isHomepage = !data.page.url.includes("/pokemon");
+exports.render = ({ pokemon, title, content }) => {
+  let name;
+  let types;
+
+  if (pokemon) {
+    name = pokemon.name.slice(0, 1).toUpperCase() + pokemon.name.slice(1);
+    types = pokemon.types.map(t => t.name);
+  }
   return html`
     <!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
+        <title>${name || title} | Pokédex</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="/assets/global.css" />
-        ${!isHomepage &&
+        ${pokemon &&
           html`
             <link rel="stylesheet" href="/assets/pokemon.css" />
+            <style>
+              :root {
+                --primary: var(--${types[0]});
+                ${types[1] && `--secondary: var(--${types[1]})`};
+              }
+            </style>
           `}
       </head>
       <body>
@@ -48,7 +61,7 @@ exports.render = data => {
           <div id="search-container"></div>
         </header>
         <main class="stack4">
-          ${data.content}
+          ${content}
         </main>
         <footer class="row between site-footer">
           <p>Made by <a href="https://oliverjam.es">@oliverjam</a></p>

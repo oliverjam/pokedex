@@ -2,6 +2,7 @@ const html = require("./html");
 
 exports.data = {
   layout: "layouts/base",
+  title: "All Pokémon",
 };
 
 exports.render = data => {
