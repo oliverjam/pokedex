@@ -13,7 +13,7 @@ exports.render = data => {
         ${data.allPokemon.map(Pokemon)}
       </ol>
     </section>
-    <script src="/assets/cache-pokemon.js"></script>
+    <script src="/assets/js/cache-pokemon.js"></script>
   `;
 };
 
@@ -23,7 +23,7 @@ function Pokemon(p) {
       <div class="box" style="--space: var(--space4); --bg: var(--grey1);">
         <div class="frame">
           <img
-            src="${p.sprite || "/assets/missing.svg"}"
+            src="${p.sprite || "/assets/media/missing.svg"}"
             alt=""
             width="64"
             height="64"

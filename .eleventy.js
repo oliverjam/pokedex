@@ -1,7 +1,9 @@
 const htmlmin = require("html-minifier");
 
 module.exports = config => {
-  config.addPassthroughCopy({ "_includes/assets": "assets" });
+  config.addPassthroughCopy({ "_includes/assets/js": "assets/js" });
+  config.addPassthroughCopy({ "_includes/assets/css": "assets/css" });
+  config.addPassthroughCopy({ "_includes/assets/media": "assets/media" });
   config.addPassthroughCopy({
     "_includes/assets/service-worker.js": "service-worker.js",
   });

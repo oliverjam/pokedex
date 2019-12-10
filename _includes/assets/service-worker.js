@@ -1,9 +1,9 @@
 const cacheName = "dex-0";
 
 const assets = [
-  "/assets/global.css",
-  "/assets/pokemon.css",
-  "/assets/search.js",
+  "/assets/css/global.css",
+  "/assets/css/pokemon.css",
+  "/assets/js/search.js",
 ];
 
 self.addEventListener("install", event => {

@@ -17,10 +17,10 @@ exports.render = ({ pokemon, title, content }) => {
         <title>${name || title} | Pokédex</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="/assets/global.css" />
+        <link rel="stylesheet" href="/assets/css/global.css" />
         ${pokemon &&
           html`
-            <link rel="stylesheet" href="/assets/pokemon.css" />
+            <link rel="stylesheet" href="/assets/css/pokemon.css" />
             <style>
               :root {
                 --primary: var(--${types[0]});
@@ -75,7 +75,7 @@ exports.render = ({ pokemon, title, content }) => {
             </svg>
           </a>
         </footer>
-        <script async src="/assets/search.js"></script>
+        <script async src="/assets/js/search.js"></script>
         <script>
           if ("serviceWorker" in navigator) {
             navigator.serviceWorker

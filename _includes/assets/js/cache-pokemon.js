@@ -8,7 +8,7 @@ pokes.forEach(p => {
 
   const button = document.createElement("button");
   button.setAttribute("aria-label", "download");
-  button.innerHTML = `<img src="/assets/download.svg" alt="" />`;
+  button.innerHTML = `<img src="/assets/media/download.svg" alt="" />`;
   button.addEventListener("click", cache(href));
 
   p.appendChild(button);
